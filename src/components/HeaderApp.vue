@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="../assets/logo.png" alt="SVG Logo" />
+    <img src="../assets/logo.png" alt="logo.SVG" />
     <div>
       <span>Informacje</span>
       <span>Artykuł</span>
@@ -8,7 +8,7 @@
       <span>Opinie</span>
       <span>Kontakt</span>
     </div>
-    <img src="../assets/text.png" alt="SVG Logo Text" />
+    <img src="../assets/text.png" alt="text.SVG" />
   </header>
 </template>
 
