@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import Header from "./components/HeaderApp.vue";
+import HeaderBody from './components/HeaderBody.vue';
+import SegmentBody from './components/SegmentBody.vue';
 </script>
 
 <template>
-  <Header />
+  <HeaderBody />
+  <SegmentBody />
 </template>
 
 <style lang="scss">
 body {
   margin: 0;
   padding: 0;
-  background-color: #14BDEB;
+  background-color: #14bdeb;
 }
 </style>
