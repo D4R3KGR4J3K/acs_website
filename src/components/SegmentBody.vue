@@ -4,21 +4,23 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import SegmentBlock from './SegmentBlock.vue';
 
-export default {
+export default defineComponent({
   components: {
     SegmentBlock,
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
 div {
   display: flex;
-  background-color: #00ff00;
-  height: 2000px; /* Tymczasowo */
+  flex-direction: column;
+  background-color: #d99ac5;
+  height: 10000px;
   position: relative;
 }
 </style>
