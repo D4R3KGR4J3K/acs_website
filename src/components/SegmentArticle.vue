@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <span class="title">Artykuł</span>
+    <div class="blockHeader">
+      <span class="title">Artykuł</span>
+    </div>
     <div class="collection">
       <span class="authorArticle">Autor:<br />{{ articleAuthor }}</span>
       <label>
@@ -20,35 +22,58 @@
       </label>
       <span class="dateArticle">Utworzono:<br />{{ articleDate }}</span>
     </div>
-    <span class="textArticle">{{ articleText }}</span>
-    <span class="articleTitleStyle">{{ articleTitle }}</span>
+    <div class="contentArticle">
+      <span class="textArticle">{{ articleText }}</span>
+      <span class="articleTitleStyle">{{ articleTitle }}</span>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useArticleStore } from '@/stores/articles';
 
 export default defineComponent({
   data() {
     return {
-      articleTitle: 'sss',
-      articleText: 'text',
-      articleDate: null,
+      articleTitle: '',
+      articleText: '',
+      articleDate: '',
       articleAuthor: 'Darek Araczewski',
       searchResult: null,
     };
+  },
+  setup() {
+    const actions = useArticleStore();
+
+    actions.databaseConnect();
+  },
+  mounted() {
+    const actions = useArticleStore();
+
+    this.articleTitle = actions.articles[0].articleTitle;
+    this.articleText = actions.articles[0].articleText;
+    this.articleDate = actions.articles[0].articleDate;
+    this.articleAuthor = actions.articles[0].articleAuthor;
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.title {
+.blockHeader {
   display: flex;
   position: relative;
   width: 100%;
-  font-size: 5.5em;
-  margin-left: calc(50% - 1.5em);
   height: max-content;
+  justify-content: center;
+
+  & > .title {
+    display: flex;
+    position: relative;
+    width: max-content;
+    font-size: 5.5em;
+    height: max-content;
+  }
 }
 
 .container {
@@ -60,6 +85,15 @@ export default defineComponent({
   margin: 20px;
   padding: 0;
   overflow: hidden;
+}
+
+.contentArticle {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
 }
 
 .authorArticle {
@@ -90,8 +124,8 @@ export default defineComponent({
   text-align: center;
   margin-top: 65px;
   font-size: 50px;
-  height: 300px;
-  width: 100%;
+  height: 400px;
+  width: max-content;
 }
 
 .articleTitleStyle {
@@ -100,7 +134,7 @@ export default defineComponent({
   margin-top: 40px;
   font-size: 75px;
   text-align: center;
-  width: 100%;
+  width: max-content;
 }
 
 .collection {

@@ -53,5 +53,8 @@ export default defineComponent({
   border-bottom-left-radius: 55px;
   border-top-right-radius: 55px;
   border-bottom-right-radius: 55px;
+  -webkit-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
 }
 </style>

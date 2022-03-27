@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainBodyStyle">
     <SegmentBlock />
   </div>
 </template>
@@ -16,11 +16,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-div {
+.mainBodyStyle {
   display: flex;
   flex-direction: column;
   background-color: #d99ac5;
-  height: 10000px;
+  height: max-content;
   position: relative;
 }
 </style>

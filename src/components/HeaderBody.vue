@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="headerBodyStyle">
     <HeaderApp />
   </div>
 </template>
@@ -16,9 +16,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-div {
+.headerBodyStyle {
   display: flex;
-  background-color: #d99ac5;
   height: 150px; /* Tymczasowo */
   position: relative;
 }

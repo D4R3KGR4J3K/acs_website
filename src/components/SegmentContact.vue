@@ -1,6 +1,31 @@
 <template>
   <div class="container">
-    <span class="title">Kontakt</span>
+    <div class="blockHeader">
+      <span class="title">Kontakt</span>
+    </div>
+    <div class="contentBlock">
+      <div class="textBlock">
+        <spna class="styleText">
+          <b>Email:</b> kontakt@amairoservice.com<br />
+          <b>Tel.</b> 84 93 89 933<br />
+          <br />
+          <b>Biuro Obsługi Klienta:</b><br />
+          <b>Tel.</b> 84 93 89 933 <b>wew.</b> 1<br />
+          <b>Reklamacje:</b><br />
+          <b>Tel.</b> 84 93 89 933 <b>wew.</b> 2<br />
+          <b>Informacje odnośnie usług:</b><br />
+          <b>Tel.</b> 84 93 89 933 <b>wew.</b> 3<br />
+          <br />
+          <i><b>Kontakt w sprawie biznesu:</b></i>
+          <br />
+          <b>Email:</b> bis@amairoservice.com<br />
+          <b>Tel.</b> 84 93 89 933 <b>wew.</b> 15
+        </spna>
+      </div>
+      <div class="imgBlock">
+        <img src="../assets/img/logo+text.png" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,13 +36,51 @@ export default defineComponent({});
 </script>
 
 <style lang="scss" scoped>
-.title {
+.blockHeader {
   display: flex;
   position: relative;
   width: 100%;
-  font-size: 5.5em;
-  margin-left: calc(50% - 2.25em);
   height: max-content;
+  justify-content: center;
+
+  & > .title {
+    display: flex;
+    position: relative;
+    width: max-content;
+    font-size: 5.5em;
+    height: max-content;
+  }
+}
+
+.contentBlock {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  & > .imgBlock {
+    display: flex;
+    width: calc(50% - (40px * 2));
+    padding: 40px;
+    height: calc(100% - (40px * 2));
+    align-items: center;
+
+    & > img {
+      display: flex;
+      height: calc(70% - (40px * 2));
+    }
+  }
+
+  & > .textBlock {
+    display: flex;
+    width: calc(50% - (80px * 2));
+    padding: 40px 80px;
+    height: calc(100% - (40px * 2));
+
+    & > .styleText {
+      font-size: 2vw;
+      text-align: center;
+    }
+  }
 }
 
 .container {

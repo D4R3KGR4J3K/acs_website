@@ -1,18 +1,30 @@
 <template>
   <div class="container">
-    <span class="title">Informacje</span>
+    <div class="blockHeader">
+      <span class="title">Informacje</span>
+    </div>
     <div class="containerPanels">
       <div class="leftPanel">
-        <div class="dropdown">
-          <button @click="openList()" class="dropbtn">Dropdown</button>
-          <div id="myDropdown" class="dropdown-content">
-            <a>Link 1</a>
-            <a>Link 2</a>
-            <a>Link 3</a>
+        <div class="buttonBlock">
+          <div class="buttonGroup" @click="toggle()">
+            <label>
+              <button class="dropbtn">
+                <span class="noselect">Informacje o Założycielu</span>
+              </button>
+              <input
+                type="image"
+                src="https://img.icons8.com/material/96/000000/circled-chevron-down--v1.png"
+                alt="Search"
+                class="noselect"
+              />
+            </label>
+            <div id="myDropdown" class="dropdown-content">
+              <a>Informacje o Założycielu</a>
+            </div>
           </div>
         </div>
         <div class="content">
-          <div class="showElement">
+          <div class="showElement" id="info">
             <span class="creator"> Andrzej Kotarowski </span>
             <br />
             <br />
@@ -48,24 +60,35 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-window.onclick = function (event: any) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName('dropdown-content');
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-};
-
 export default defineComponent({
+  data() {
+    return {
+      opened: false,
+    };
+  },
   methods: {
-    openList() {
+    show() {
+      this.opened = true;
       let element = document.getElementById('myDropdown');
-      if (element != null) element.classList.toggle('show');
+      if (element == null) return;
+      if (element.classList.contains('hiddenElement'))
+        element.classList.toggle('hiddenElement');
+      element.classList.toggle('show');
+      setTimeout(() => document.addEventListener('click', this.hide), 0);
+    },
+    hide() {
+      this.opened = false;
+      let element = document.getElementById('myDropdown');
+      if (element == null) return;
+      if (element.classList.contains('show')) element.classList.toggle('show');
+      element.classList.toggle('hiddenElement');
+      document.removeEventListener('click', this.hide);
+    },
+    toggle() {
+      if (this.opened) {
+        return this.hide();
+      }
+      return this.show();
     },
   },
 });
@@ -89,39 +112,86 @@ export default defineComponent({
     height: 100%;
   }
 }
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-  background-color: #2980b9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.buttonBlock {
+  display: flex;
   height: max-content;
-  margin-left: calc(50% - 50px);
-  margin-top: 50px;
-  margin-bottom: 40px;
+  width: 100%;
+  justify-content: center;
+  margin: 50px 5px;
 }
 
-/* Dropdown Content (Hidden by Default) */
+label {
+  width: 100%;
+}
+
+.buttonGroup {
+  height: max-content;
+  display: flex;
+  position: relative;
+  width: 75%;
+  background-color: #d99ac5;
+  padding: 15px;
+  border-top-left-radius: 55px;
+  border-bottom-left-radius: 55px;
+  border-top-right-radius: 55px;
+  border-bottom-right-radius: 55px;
+
+  & > label > .dropbtn {
+    display: flex;
+    float: left;
+    width: calc(100% - 32px);
+    text-align: center;
+    padding: 6px;
+    color: black;
+    border: none;
+    font-size: 17px;
+    background-color: #00000000;
+  }
+
+  & > label > input[type='image'] {
+    display: flex;
+    float: right;
+    max-height: 32px;
+    font-size: 80px;
+    border: none;
+    cursor: default;
+
+    &::-webkit-input-placeholder {
+      font-style: italic;
+    }
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #ad6f9a;
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
+  background-color: #d99ac5;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  min-width: 100%;
+  top: 3.2vw;
+  left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
@@ -132,7 +202,11 @@ export default defineComponent({
     display: block;
   }
   & > a:hover {
-    background-color: #ddd;
+    background-color: #ad6f9a;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
   }
 }
 .leftPanel,
@@ -144,13 +218,20 @@ export default defineComponent({
   flex-direction: column;
 }
 
-.title {
+.blockHeader {
   display: flex;
   position: relative;
   width: 100%;
-  font-size: 5.5em;
-  margin-left: calc(50% - 2.25em);
   height: max-content;
+  justify-content: center;
+
+  & > .title {
+    display: flex;
+    position: relative;
+    width: max-content;
+    font-size: 5.5em;
+    height: max-content;
+  }
 }
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
@@ -162,6 +243,7 @@ export default defineComponent({
   position: relative;
   width: 100%;
   height: 100%;
+  justify-content: center;
 }
 
 .hiddenElement {
