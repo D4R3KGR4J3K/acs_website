@@ -5,7 +5,7 @@
     </div>
     <div class="contentBlock">
       <div class="textBlock">
-        <spna class="styleText">
+        <span class="styleText">
           <b>Email:</b> kontakt@amairoservice.com<br />
           <b>Tel.</b> 84 93 89 933<br />
           <br />
@@ -20,7 +20,7 @@
           <br />
           <b>Email:</b> bis@amairoservice.com<br />
           <b>Tel.</b> 84 93 89 933 <b>wew.</b> 15
-        </spna>
+        </span>
       </div>
       <div class="imgBlock">
         <img src="../assets/img/logo+text.png" />

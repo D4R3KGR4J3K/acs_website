@@ -1,21 +1,21 @@
 <template>
   <div class="block">
-    <SegmentGalery />
+    <SegmentGalery id="galery" />
   </div>
   <div class="block">
-    <SegmentInformation />
+    <SegmentInformation id="information" />
   </div>
   <div class="block">
-    <SegmentArticle />
+    <SegmentArticle id="article" />
   </div>
   <div class="block">
-    <SegmentServices />
+    <SegmentServices id="services" />
   </div>
   <div class="block">
-    <SegmentOpinions />
+    <SegmentOpinions id="options" />
   </div>
   <div class="block">
-    <SegmentContact />
+    <SegmentContact id="contact" />
   </div>
 </template>
 

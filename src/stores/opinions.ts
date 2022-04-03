@@ -3,12 +3,21 @@ import { defineStore } from 'pinia';
 export const useOpinionsStore = defineStore('opinions', {
   state: () => {
     return {
+      totalPages: 2,
+      nowPage: 1,
+      totalItems: 3,
+      showOpinions: [
+        {
+          author: 'Adam Mirek',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 5,
+        },
+      ],
       opinions: [
         {
-          articleTitle: '',
-          articleText: '',
-          articleDate: '',
-          articleAuthor: '',
+          author: 'Adam Mirek',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 5,
         },
       ],
     };
@@ -17,19 +26,50 @@ export const useOpinionsStore = defineStore('opinions', {
     databaseConnect() {
       this.opinions = [
         {
-          articleTitle: 'Nic wartoścowego',
-          articleText:
-            'Była sobie długa i mroźna zima! Nikt się tego nie spodziewał',
-          articleDate: new Date(Date.now()).toDateString(),
-          articleAuthor: 'Darek Araczewski',
+          author: 'Adam Mer',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 5,
         },
         {
-          articleTitle: 'Nic wartoścowego Nie ma',
-          articleText:
-            'Była sobie długa i mroźna zima! Nikt się tego nie spodziewał',
-          articleDate: new Date(Date.now() - 900).toDateString(),
-          articleAuthor: 'Darek Araczews',
+          author: 'Adam Mder',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 2,
         },
+        {
+          author: 'Adam Mirek',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 4,
+        },
+      ];
+      this.showOpinions = [
+        {
+          author: 'Adam Mer',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 5,
+        },
+        {
+          author: 'Adam Mder',
+          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic',
+          stars: 2,
+        },
+      ];
+    },
+    nextPage(number: number) {
+      const newValue = this.nowPage + number;
+      if (newValue <= 0 || newValue > this.totalPages) return;
+      this.nowPage += number;
+
+      if (this.nowPage == this.totalPages) {
+        const numberToShow = this.totalPages * 2 - this.totalItems;
+        if (numberToShow == 1) {
+          this.showOpinions = [this.opinions[this.totalItems - 1]];
+          return;
+        }
+      }
+
+      this.showOpinions = [
+        this.opinions[this.nowPage * 2 - 2],
+        this.opinions[this.nowPage * 2 - 1],
       ];
     },
   },

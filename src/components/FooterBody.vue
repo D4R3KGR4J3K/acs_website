@@ -1,7 +1,7 @@
 <template>
   <div class="footerBodyStyle">
     <div class="blockModified">
-        <div class="propTop"></div>
+      <div class="propTop"></div>
     </div>
     <FooterBlock />
   </div>
@@ -19,7 +19,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
 .blockModified {
   display: flex;
   width: 100%;

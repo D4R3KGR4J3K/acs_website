@@ -2,15 +2,29 @@
   <header>
     <img class="textImg" src="../assets/img/logo.png" alt="logo.png" />
     <div class="navCollection">
-      <div class="navItem">Informacje</div>
-      <div class="navItem">Artykuł</div>
-      <div class="navItem">Usługi</div>
-      <div class="navItem">Opinie</div>
-      <div class="navItem">Kontakt</div>
+      <div class="navItem noselect" @click="scroll('information')">
+        Informacje
+      </div>
+      <div class="navItem noselect" @click="scroll('article')">Artykuł</div>
+      <div class="navItem noselect" @click="scroll('services')">Usługi</div>
+      <div class="navItem noselect" @click="scroll('options')">Opinie</div>
+      <div class="navItem noselect" @click="scroll('contact')">Kontakt</div>
     </div>
     <img class="textLogo" src="../assets/img/text.png" alt="text.png" />
   </header>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  methods: {
+    scroll(to: string) {
+      document.getElementById(to)?.scrollIntoView({ behavior: 'smooth' });
+    },
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 // header {
@@ -47,6 +61,7 @@ header {
       font-size: 1.5vw;
       font-family: 'Encode Sans', sans-serif;
       color: #ddcee9;
+      cursor: pointer;
       text-shadow: rgb(0, 0, 0) 3px 0px 0px,
         rgb(0, 0, 0) 2.83487px 0.981584px 0px,
         rgb(0, 0, 0) 2.35766px 1.85511px 0px,

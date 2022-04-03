@@ -20,47 +20,111 @@
         </div>
       </label>
       <div class="infobar">
-        <span>Strona {{ nowPage }}/{{ totalPages }}</span>
+        <span>Strona {{ itemStore.nowPage }}/{{ itemStore.totalPages }}</span>
       </div>
     </div>
     <div class="mainContent">
-      <a class="prev">&#10094;</a>
+      <a class="prev" @click="itemStore.changeNowPage(-1)">&#10094;</a>
       <div class="contentItems">
-        <div class="smallBlock">
-          <div class="smallTitle">Przykład</div>
-          <img class="smallIMG" src="../assets/img/item1.jpg" alt="obrazek" />
-          <div class="smallCena">20.23 PLN</div>
-          <button class="smallButton">Więcej Informacji</button>
-        </div>
-        <div class="smallBlock">
-          <div class="smallTitle">Przykład</div>
-          <img class="smallIMG" src="../assets/img/item1.jpg" alt="obrazek" />
-          <div class="smallCena">20.23 PLN</div>
-          <button class="smallButton">Więcej Informacji</button>
-        </div>
-        <div class="smallBlock">
-          <div class="smallTitle">Przykład</div>
-          <img class="smallIMG" src="../assets/img/item1.jpg" alt="obrazek" />
-          <div class="smallCena">20.23 PLN</div>
-          <button class="smallButton">Więcej Informacji</button>
+        <div
+          class="smallBlock"
+          v-for="(item, index) in itemStore.items"
+          :key="index"
+        >
+          <div class="smallTitle">
+            {{ item.title }}
+          </div>
+          <img class="smallIMG" :src="item.img" alt="obrazek" />
+          <div class="smallCena">{{ item.price }} PLN</div>
+          <button @click="toggleModal()" class="smallButton">
+            Więcej Informacji
+          </button>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div class="modalTitle">
+                <b>{{ item.title }}</b>
+              </div>
+              <div class="modalIMG">
+                <img class="modalIMGProp" :src="item.img" alt="obrazek" />
+              </div>
+              <div class="modalDescription">
+                <b>Opis:</b> {{ item.description }}
+              </div>
+              <div class="modalTime">
+                <b>Średni czas wykonania danej usługi:</b> {{ item.time }} godz.
+              </div>
+              <div class="modalPrice">{{ item.price }} PLN</div>
+              <div class="modalButton">
+                <button @click="closeModal()" class="modalButtonProp">
+                  Zakończ podgląd
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <a class="next">&#10095;</a>
+      <a class="next" @click="itemStore.changeNowPage(1)">&#10095;</a>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { useItemsStore } from '@/stores/items';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   data() {
     return {
       searchResult: null,
-      totalPages: 0,
-      totalItems: 0,
-      nowPage: 0,
+      openedModal: false,
     };
+  },
+  setup() {
+    let typingTimer: number | undefined;
+    let typeInterval = 500; // Half a second
+    let searchInput = document.getElementById('search');
+
+    searchInput?.addEventListener('keyup', () => {
+      clearTimeout(typingTimer);
+      //typingTimer = setTimeout(liveSearch, typeInterval);
+    });
+
+    const itemStore = useItemsStore();
+
+    itemStore.databaseConnect();
+
+    return { itemStore };
+  },
+  methods: {
+    showModal() {
+      this.openedModal = true;
+      const modal = document.getElementById('myModal');
+      if (modal == null) return;
+      modal.style.display = 'flex';
+      setTimeout(() => document.addEventListener('click', this.hideModal), 0);
+    },
+    hideModal(event?: MouseEvent) {
+      this.openedModal = false;
+      const modal = document.getElementById('myModal');
+      if (modal == null) return;
+      if (event?.target == modal) {
+        modal.style.display = 'none';
+        document.removeEventListener('click', this.hideModal);
+      }
+    },
+    closeModal() {
+      this.openedModal = false;
+      const modal = document.getElementById('myModal');
+      if (modal == null) return;
+      modal.style.display = 'none';
+      document.removeEventListener('click', this.hideModal);
+    },
+    toggleModal() {
+      if (this.openedModal) {
+        return this.hideModal();
+      }
+      return this.showModal();
+    },
   },
 });
 </script>
@@ -233,6 +297,104 @@ export default defineComponent({
         padding: 10px 60px;
         font-size: 1vw;
         background-color: #dccde8;
+        border-top-left-radius: 55px;
+        border-bottom-left-radius: 55px;
+        border-top-right-radius: 55px;
+        border-bottom-right-radius: 55px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+  & > .modal-content {
+    background-color: #dccde8;
+    flex-direction: column;
+    margin: 12.5% auto;
+    border: 1px solid #888;
+    width: max-content;
+    padding: 40px;
+    border-top-left-radius: 55px;
+    border-bottom-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 55px;
+    -webkit-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    & > .modalTitle {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 37px;
+    }
+
+    & > .modalIMG {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      & > .modalIMGProp {
+        display: flex;
+      }
+    }
+
+    & > .modalDescription {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    & > .modalTime {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    & > .modalPrice {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    & > .modalButton {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      & > .modalButtonProp {
+        display: flex;
+        padding: 10px 60px;
+        font-size: 1vw;
+        background-color: #d99ac5;
         border-top-left-radius: 55px;
         border-bottom-left-radius: 55px;
         border-top-right-radius: 55px;

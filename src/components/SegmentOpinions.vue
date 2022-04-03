@@ -4,24 +4,19 @@
       <span class="title">Opinie</span>
     </div>
     <div class="buttonForList">
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
+      <a class="prev" @click="opinionStore.nextPage(-1)">&#10094;</a>
+      <a class="next" @click="opinionStore.nextPage(1)">&#10095;</a>
     </div>
     <div class="itemsList">
-      <div class="itemOpinion">
-        s
-        <div class="itemText">{{ text }}</div>
+      <div
+        class="itemOpinion"
+        v-for="(item, index) in opinionStore.showOpinions"
+        :key="index"
+      >
+        <div class="itemText">{{ item.text }}</div>
         <div class="itemInformation">
-          <div class="itemStar" v-for="n in stars" :key="n">&#09733;</div>
-          <div class="itemAuthor">~ {{ author }}</div>
-        </div>
-      </div>
-      <div class="itemOpinion">
-        s
-        <div class="itemText">{{ text }}</div>
-        <div class="itemInformation">
-          <div class="itemStar" v-for="n in stars" :key="n">&#09733;</div>
-          <div class="itemAuthor">~ {{ author }}</div>
+          <div class="itemStar" v-for="n in item.stars" :key="n">&#09733;</div>
+          <div class="itemAuthor">~ {{ item.author }}</div>
         </div>
       </div>
     </div>
@@ -29,15 +24,19 @@
 </template>
 
 <script lang="ts">
+import { useOpinionsStore } from '@/stores/opinions';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   data() {
-    return {
-      text: '"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos repellat eligendi est, laborum reic"',
-      stars: 5,
-      author: 'Adam Mirek',
-    };
+    return {};
+  },
+  setup() {
+    const opinionStore = useOpinionsStore();
+
+    opinionStore.databaseConnect();
+
+    return { opinionStore };
   },
 });
 </script>

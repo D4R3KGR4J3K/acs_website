@@ -60,6 +60,16 @@ body {
   bottom: 50px;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 @font-face {
   font-family: 'Copperplate Gothic Bold';
   src: url('./assets/fonts/copperplate_gothic_bold_regular.woff2')

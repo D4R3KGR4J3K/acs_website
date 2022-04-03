@@ -4,27 +4,30 @@
       <span class="title">Artykuł</span>
     </div>
     <div class="collection">
-      <span class="authorArticle">Autor:<br />{{ articleAuthor }}</span>
+      <span class="authorArticle">Autor:<br />{{ actions.articleAuthor }}</span>
       <label>
         <div class="search-container">
           <input
             type="text"
             placeholder="Wyszukaj Poprzedni Artykuł"
             name="search"
+            list="itemsList"
             v-model="searchResult"
           />
-          <input
-            type="image"
-            src="https://img.icons8.com/search"
-            alt="Search"
-          />
+          <datalist id="itemsList">
+            <option
+              :value="item.articleTitle"
+              v-for="(item, index) in actions.articlesName"
+              :key="index"
+            ></option>
+          </datalist>
         </div>
       </label>
-      <span class="dateArticle">Utworzono:<br />{{ articleDate }}</span>
+      <span class="dateArticle">Utworzono:<br />{{ actions.articleDate }}</span>
     </div>
     <div class="contentArticle">
-      <span class="textArticle">{{ articleText }}</span>
-      <span class="articleTitleStyle">{{ articleTitle }}</span>
+      <span class="textArticle">{{ actions.articleText }}</span>
+      <span class="articleTitleStyle">{{ actions.articleTitle }}</span>
     </div>
   </div>
 </template>
@@ -36,10 +39,6 @@ import { useArticleStore } from '@/stores/articles';
 export default defineComponent({
   data() {
     return {
-      articleTitle: '',
-      articleText: '',
-      articleDate: '',
-      articleAuthor: 'Darek Araczewski',
       searchResult: null,
     };
   },
@@ -47,14 +46,8 @@ export default defineComponent({
     const actions = useArticleStore();
 
     actions.databaseConnect();
-  },
-  mounted() {
-    const actions = useArticleStore();
 
-    this.articleTitle = actions.articles[0].articleTitle;
-    this.articleText = actions.articles[0].articleText;
-    this.articleDate = actions.articles[0].articleDate;
-    this.articleAuthor = actions.articles[0].articleAuthor;
+    return { actions };
   },
 });
 </script>
@@ -154,16 +147,6 @@ export default defineComponent({
     border-bottom-left-radius: 55px;
     border-top-right-radius: 55px;
     border-bottom-right-radius: 55px;
-
-    & > input[type='image'] {
-      display: flex;
-      float: left;
-      padding: 6px 15px;
-      max-height: 20px;
-      font-size: 17px;
-      border: none;
-      cursor: default;
-    }
 
     & > input[type='text'] {
       display: flex;

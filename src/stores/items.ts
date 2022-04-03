@@ -5,32 +5,48 @@ export const useItemsStore = defineStore('items', {
     return {
       items: [
         {
-          articleTitle: '',
-          articleText: '',
-          articleDate: '',
-          articleAuthor: '',
+          title: 'template',
+          img: '',
+          price: 23.44,
+          description: '',
+          time: 2,
         },
       ],
+      totalPages: 2,
+      totalItems: 4,
+      nowPage: 1,
     };
   },
   actions: {
     databaseConnect() {
       this.items = [
         {
-          articleTitle: 'Nic wartoścowego',
-          articleText:
-            'Była sobie długa i mroźna zima! Nikt się tego nie spodziewał',
-          articleDate: new Date(Date.now()).toDateString(),
-          articleAuthor: 'Darek Araczewski',
+          title: 'template',
+          img: '',
+          price: 23.44,
+          description: '',
+          time: 2,
         },
         {
-          articleTitle: 'Nic wartoścowego Nie ma',
-          articleText:
-            'Była sobie długa i mroźna zima! Nikt się tego nie spodziewał',
-          articleDate: new Date(Date.now() - 900).toDateString(),
-          articleAuthor: 'Darek Araczews',
+          title: 'template',
+          img: '',
+          price: 23.44,
+          description: '',
+          time: 2,
+        },
+        {
+          title: 'template',
+          img: '',
+          price: 23.44,
+          description: '',
+          time: 2,
         },
       ];
+    },
+    changeNowPage(number: number) {
+      const newValue = this.nowPage + number;
+      if (newValue <= 0 || newValue > this.totalPages) return;
+      this.nowPage += number;
     },
   },
 });
