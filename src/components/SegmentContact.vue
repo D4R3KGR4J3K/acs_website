@@ -23,7 +23,7 @@
         </span>
       </div>
       <div class="imgBlock">
-        <img src="../assets/img/logo+text.png" />
+        <img src="../assets/img/logotext.png" />
       </div>
     </div>
   </div>
