@@ -1,23 +1,25 @@
+$scale: 100%;
+
 @media (min-width: 320px) {
-  $scale: 16.67%;
+  $scale: 16.67% !global;
 }
 
 @media (min-width: 481px) {
-  $scale: 25.05%;
+  $scale: 25.05% !global;
 } 
 
 @media (min-width: 769px) {
-  $scale: 16.67%;
+  $scale: 16.67% !global;
 } 
 
 @media (min-width: 1025px) {
-  $scale: 40.05%;
+  $scale: 40.05% !global ;
 } 
 
 @media (min-width: 1201px) {
-  $scale: 62.55%;
+  $scale: 62.55% !global;
 } 
 
 @media (min-width: 1920px) {
-  $scale: 100%;
+  $scale: 100% !global;
 } 
