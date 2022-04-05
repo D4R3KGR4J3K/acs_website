@@ -1,0 +1,23 @@
+@media (min-width: 320px) {
+  $scale: 16.67%;
+}
+
+@media (min-width: 481px) {
+  $scale: 25.05%;
+} 
+
+@media (min-width: 769px) {
+  $scale: 16.67%;
+} 
+
+@media (min-width: 1025px) {
+  $scale: 40.05%;
+} 
+
+@media (min-width: 1201px) {
+  $scale: 62.55%;
+} 
+
+@media (min-width: 1920px) {
+  $scale: 100%;
+} 

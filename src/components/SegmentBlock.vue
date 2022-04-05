@@ -41,12 +41,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/style/block";
+
 .block {
   margin: 50px 100px 50px 100px;
   background-color: #dccde8;
   display: flex;
   height: 43vw;
-  width: calc(100% - 200px - 100px);
+  width: calc($scale - 200px - 100px);
   position: relative;
   padding: 50px;
   border-top-left-radius: 55px;
