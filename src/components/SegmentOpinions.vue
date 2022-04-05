@@ -53,7 +53,7 @@ export default defineComponent({
     display: flex;
     position: relative;
     width: max-content;
-    font-size: 5.5em;
+    font-size: 4.58vw;
     height: max-content;
   }
 }
@@ -78,8 +78,8 @@ export default defineComponent({
   align-items: center;
   & > .itemOpinion {
     display: flex;
-    width: 700px;
-    height: 500px;
+    width: 36.46vw;
+    height: 46.3vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
