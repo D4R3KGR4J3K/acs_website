@@ -95,8 +95,8 @@ export default defineComponent({
   text-align: center;
   width: max-content;
   margin-top: 8px;
-  margin-left: 12vh;
-  margin-right: 2vh;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 20px;
 }
 
@@ -106,8 +106,8 @@ export default defineComponent({
   text-align: center;
   width: max-content;
   margin-top: 8px;
-  margin-left: 10vh;
-  margin-right: 2vh;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 20px;
 }
 
@@ -134,7 +134,7 @@ export default defineComponent({
   display: flex;
   position: relative;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 30px;
   & > label > .search-container {
     height: max-content;
