@@ -77,7 +77,7 @@ export default defineComponent({});
 
     & > img {
       display: flex;
-      width: calc(70% - (40px * 2));
+      width: calc(100% - (40px * 2));
     }
   }
 
@@ -88,7 +88,7 @@ export default defineComponent({});
     height: calc(100% - (40px * 2));
 
     & > .styleText {
-      font-size: 2vw;
+      font-size: 1.5vw;
       text-align: center;
     }
   }
