@@ -73,13 +73,13 @@ export default defineComponent({
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 40px 0px;
+  padding: calc(20px + 1.04vw) 0px;
   justify-content: space-around;
   align-items: center;
   & > .itemOpinion {
     display: flex;
     width: 36.46vw;
-    height: 46.3vh;
+    height: max-content;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -92,7 +92,7 @@ export default defineComponent({
     & > .itemInformation {
       display: flex;
       font-size: 3vw;
-      margin-top: 20px;
+      margin-top: calc(20px - 0.52vw);
 
       & > .itemStar {
         font-size: 3vw;
@@ -112,7 +112,7 @@ export default defineComponent({
   position: relative;
   width: 100%;
   height: 100px;
-  margin-bottom: 40px;
+  margin-bottom: calc(20px + 1.04vw);
 
   .prev,
   .next {
