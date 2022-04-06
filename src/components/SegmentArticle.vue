@@ -83,7 +83,7 @@ export default defineComponent({
 .contentArticle {
   display: flex;
   position: relative;
-  width: 33.3333333vw;
+  width: 100%;
   height: 100%;
   align-items: center;
   flex-direction: column;
@@ -93,7 +93,7 @@ export default defineComponent({
   display: flex;
   position: relative;
   text-align: center;
-  width: 15%;
+  width: max-content;
   margin-top: 8px;
   margin-left: 12vh;
   margin-right: 2vh;
@@ -104,7 +104,7 @@ export default defineComponent({
   display: flex;
   position: relative;
   text-align: center;
-  width: 15%;
+  width: max-content;
   margin-top: 8px;
   margin-left: 10vh;
   margin-right: 2vh;
@@ -142,7 +142,7 @@ export default defineComponent({
     position: relative;
     background-color: #d99ac5;
     padding: 15px;
-    width: 50%;
+    width: 33.3333333vw;
     border-top-left-radius: 55px;
     border-bottom-left-radius: 55px;
     border-top-right-radius: 55px;
