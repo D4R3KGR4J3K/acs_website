@@ -117,7 +117,7 @@ export default defineComponent({
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: calc(5px - 0.78vw);
+  margin: calc(5px + 0.78vw);
   padding: 0;
   overflow: hidden;
   

@@ -173,7 +173,7 @@ export default defineComponent({
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: calc(5px - 0.78vw);
+  margin: calc(5px + 0.78vw);
   padding: 0;
   overflow: hidden;
 }
@@ -208,7 +208,7 @@ export default defineComponent({
   height: max-content;
   display: flex;
   position: relative;
-  width: 50%;
+  width: 33.3333333vw;
   background-color: #d99ac5;
   padding: 15px;
   border-top-left-radius: 55px;

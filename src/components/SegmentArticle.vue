@@ -64,7 +64,7 @@ export default defineComponent({
     display: flex;
     position: relative;
     width: max-content;
-    font-size: 5.5em;
+    font-size: 4.58vw;
     height: max-content;
   }
 }
@@ -75,7 +75,7 @@ export default defineComponent({
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: 20px;
+  margin: calc(5px + 0.78vw);
   padding: 0;
   overflow: hidden;
 }
@@ -83,7 +83,7 @@ export default defineComponent({
 .contentArticle {
   display: flex;
   position: relative;
-  width: 100%;
+  width: 33.3333333vw;
   height: 100%;
   align-items: center;
   flex-direction: column;

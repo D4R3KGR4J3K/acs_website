@@ -47,9 +47,20 @@ export default defineComponent({});
     display: flex;
     position: relative;
     width: max-content;
-    font-size: 5.5em;
+    font-size: 4.58vw;
     height: max-content;
   }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: calc(100% - 40px);
+  width: 100%;
+  margin: calc(5px + 0.78vw);
+  padding: 0;
+  overflow: hidden;
 }
 
 .contentBlock {
@@ -83,14 +94,4 @@ export default defineComponent({});
   }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: calc(100% - 40px);
-  width: 100%;
-  margin: 20px;
-  padding: 0;
-  overflow: hidden;
-}
 </style>
