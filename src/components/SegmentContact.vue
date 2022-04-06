@@ -86,6 +86,8 @@ export default defineComponent({});
     width: calc(50% - (80px * 2));
     padding: 40px 80px;
     height: calc(100% - (40px * 2));
+    justify-content: center;
+    align-items: center;
 
     & > .styleText {
       font-size: 1.5vw;
