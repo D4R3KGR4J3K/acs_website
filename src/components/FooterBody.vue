@@ -24,7 +24,7 @@ export default defineComponent({
   width: 100%;
   height: 10.4166666vw;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .propTop {
