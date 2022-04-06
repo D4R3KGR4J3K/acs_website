@@ -15,7 +15,7 @@ export default defineComponent({});
 <style lang="scss" scoped>
 .container {
   display: flex;
-  height: 150px;
+  height: 200px;
   width: 100%;
   position: relative;
 }

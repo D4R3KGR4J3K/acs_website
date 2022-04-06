@@ -30,7 +30,6 @@ export default defineComponent({
 .propTop {
   width: 200%;
   height: 700px;
-  padding-top: 30px;
   position: absolute;
   left: -49.4791666vw;
   top: 2.60416666vw;
