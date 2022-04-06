@@ -31,8 +31,8 @@ export default defineComponent({
   width: 200%;
   height: 700px;
   position: absolute;
-  left: -49,4791666vw;
-  top: 2,60416666vw;
+  left: -49.4791666vw;
+  top: 2.60416666vw;
   background-color: black;
   -webkit-box-shadow: 0px 0px 21px 18px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 21px 18px rgba(0, 0, 0, 1);
