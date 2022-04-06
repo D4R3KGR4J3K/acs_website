@@ -41,7 +41,7 @@ body {
   width: 120%;
   height: 700px;
   position: absolute;
-  left: -200px;
+  left: -10.4166667vw;
   background-color: #d99ac5;
   -webkit-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 42px 6px rgba(0, 0, 0, 1);
@@ -51,13 +51,13 @@ body {
 .propTop {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
-  top: 50px;
+  top: 2.60416667vw;
 }
 
 .propBottom {
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-  bottom: 50px;
+  bottom: 2.60416667vw;
 }
 
 .noselect {

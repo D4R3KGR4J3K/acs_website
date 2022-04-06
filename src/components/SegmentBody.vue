@@ -21,6 +21,7 @@ export default defineComponent({
   flex-direction: column;
   background-color: #d99ac5;
   height: max-content;
+  padding-bottom: 20px;
   position: relative;
 }
 </style>
