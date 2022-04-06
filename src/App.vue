@@ -51,13 +51,13 @@ body {
 .propTop {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
-  top: 2.60416667vw;
+  top: 2.6041665vw;
 }
 
 .propBottom {
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-  bottom: 2.60416667vw;
+  bottom: 2.6041665vw;
 }
 
 .noselect {

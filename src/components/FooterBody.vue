@@ -22,7 +22,7 @@ export default defineComponent({
 .blockModified {
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 10.4166666vw;
   position: relative;
   overflow: hidden;
 }
@@ -31,8 +31,8 @@ export default defineComponent({
   width: 200%;
   height: 700px;
   position: absolute;
-  left: -950px;
-  top: 50px;
+  left: -49,4791666vw;
+  top: 2,60416666vw;
   background-color: black;
   -webkit-box-shadow: 0px 0px 21px 18px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 21px 18px rgba(0, 0, 0, 1);

@@ -115,8 +115,8 @@ export default defineComponent({
   display: flex;
   position: relative;
   text-align: center;
-  margin-top: 65px;
-  font-size: 2.6vw;
+  margin-top: 3,38541666vw;
+  font-size: 2.4vw;
   height: 400px;
   width: max-content;
 }
@@ -124,8 +124,8 @@ export default defineComponent({
 .articleTitleStyle {
   display: flex;
   position: relative;
-  margin-top: 40px;
-  font-size: 3.9vw;
+  margin-top: 2,08333333vw;
+  font-size: 3.6vw;
   text-align: center;
   width: max-content;
 }
