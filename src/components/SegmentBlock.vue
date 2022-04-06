@@ -44,13 +44,13 @@ export default defineComponent({
 @import "../assets/style/block";
 
 .block {
-  margin: 50px 100px 50px 100px;
+  margin: calc(15px + 1.8229vw) calc(30px + 3.6458vw);
   background-color: #dccde8;
   display: flex;
   height: 43vw;
-  width: calc($scale - 200px - 100px);
+  width: calc(100% - (calc(30px + 3.6458vw) * 2) - (calc(15px + 1.8229vw) * 2));
   position: relative;
-  padding: 50px;
+  padding: calc(15px + 1.8229vw);
   border-top-left-radius: 55px;
   border-bottom-left-radius: 55px;
   border-top-right-radius: 55px;
