@@ -70,13 +70,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
 .container {
   display: flex;
+  flex-direction: column;
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: 20px;
+  margin: calc(5px - 0.78vw);
   padding: 0;
+  overflow: hidden;
 }
 
 img {

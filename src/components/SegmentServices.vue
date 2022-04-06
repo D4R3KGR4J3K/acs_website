@@ -162,7 +162,7 @@ export default defineComponent({
     display: flex;
     position: relative;
     width: max-content;
-    font-size: 5.5em;
+    font-size: 4.58vw;
     height: max-content;
   }
 }
@@ -173,7 +173,7 @@ export default defineComponent({
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: 20px;
+  margin: calc(5px - 0.78vw);
   padding: 0;
   overflow: hidden;
 }
@@ -208,7 +208,7 @@ export default defineComponent({
   height: max-content;
   display: flex;
   position: relative;
-  width: 75vh;
+  width: 50%;
   background-color: #d99ac5;
   padding: 15px;
   border-top-left-radius: 55px;
@@ -264,9 +264,9 @@ export default defineComponent({
     align-items: center;
     & > .smallBlock {
       display: flex;
-      height: 375px;
-      width: 325px;
-      padding: 40px;
+      height: 19.53125vw;
+      width: 16.9270833vw;
+      padding: calc(15px + 1.30208333vw);
       background-color: #d99ac5;
       border-top-left-radius: 55px;
       border-bottom-left-radius: 55px;

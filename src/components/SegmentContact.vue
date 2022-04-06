@@ -66,7 +66,7 @@ export default defineComponent({});
 
     & > img {
       display: flex;
-      height: calc(70% - (40px * 2));
+      width: calc(70% - (40px * 2));
     }
   }
 

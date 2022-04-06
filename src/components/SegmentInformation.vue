@@ -95,16 +95,32 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.blockHeader {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  justify-content: center;
+
+  & > .title {
+    display: flex;
+    position: relative;
+    width: max-content;
+    font-size: 4.58vw;
+    height: max-content;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   position: relative;
   height: calc(100% - 40px);
   width: 100%;
-  margin: 20px;
+  margin: calc(5px - 0.78vw);
   padding: 0;
   overflow: hidden;
-
+  
   & > .containerPanels {
     display: flex;
     flex-direction: row;
@@ -207,21 +223,6 @@ label {
   flex-direction: column;
 }
 
-.blockHeader {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: max-content;
-  justify-content: center;
-
-  & > .title {
-    display: flex;
-    position: relative;
-    width: max-content;
-    font-size: 5.5em;
-    height: max-content;
-  }
-}
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
